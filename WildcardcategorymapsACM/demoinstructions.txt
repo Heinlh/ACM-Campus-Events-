@@ -1,0 +1,88 @@
+ STEP 1: Fire It Up
+
+Make sure you’ve got Python 3 installed.
+Check with:
+
+python --version
+
+
+Then run the demo:
+
+python event_router_cli.py
+
+
+
+You’ll see a little intro message pop up in the terminal.
+
+ STEP 2: Talk To It Like 
+
+Type whatever feels natural. It doesn’t need to be perfect. Examples:
+
+shOw mE f0otbal1l games on thursday
+i wanna see sports
+info session and resume on weds
+events at clarice on fri
+
+
+You can use slang, typos, abbreviations  it’ll try to figure it out.
+Type exit or quit when you’re done.
+
+STEP 3: What You’ll See
+
+The program breaks your sentence down and prints:
+
+Normalized text: cleaned up version of what you said
+
+Spell-fixed: what it thinks you meant
+
+Category: like “sports”, “careers”, “academics”, or “arts & culture”
+
+Day filter: if you said something like “Thursday” or “Fri”
+
+Entities: the keywords it pulled (like “football”, “resume”)
+
+Then it’ll show matching mock events, like:
+
+- Maryland Football vs. Example U | Thursday 7:00 PM | SECU Stadium | tags: football
+
+
+If nothing matches, it’ll say “No matching events found.”
+
+STEP 4: Try To Break It (Kinda)
+
+The point is to see how smart it is, so go wild:
+
+Misspell stuff: f0otbal1l, basktball
+
+Use abbreviations: weds, thur, fri
+
+Be lazy: show me sports
+
+Mix stuff: resume or interview events on tues
+
+See how well it figures you out.
+
+ STEP 5: Give Feedback
+
+After testing, let me know:
+
+Did it understand you?
+
+Did it find the right events?
+
+Did it correct your typos properly?
+
+Anything that felt off or confusing?
+
+ Quick Summary
+
+You type:
+
+shOw mE f0otbal1l games on thursday
+
+It understands:
+→ sports, football, thursday
+
+It shows:
+
+football games happening Thursday
