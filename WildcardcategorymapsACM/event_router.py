@@ -660,3 +660,21 @@ __all__ = [
 ]
 
 
+
+if __name__ == "__main__":
+    sample_query = input("Enter your event query: ")
+    category_map = {
+        "sports": ["%football%", "%basketball%", "%soccer%"],
+        "careers": ["%career%", "%internship%", "%resume%"],
+        "academics": ["%lecture%", "%seminar%"],
+        "arts_culture": ["%concert%", "%film%", "%dance%"]
+    }
+    events = [
+        {"id": "1", "title": "Football Game vs Penn State", "start": "thursday 7pm",
+         "venue": "SECU Stadium", "tags": ["football"], "category": "sports"},
+        {"id": "2", "title": "Career Fair", "start": "friday 10am",
+         "venue": "Stamp", "tags": ["career"], "category": "careers"}
+    ]
+    result = parse_and_retrieve_events(sample_query, category_map, events)
+    print(format_result_as_json(result))
+
