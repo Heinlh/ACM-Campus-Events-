@@ -610,6 +610,40 @@ def parse_and_retrieve_events(
     return parsed
 
 
+def format_result_as_json(result: Dict, pretty: bool = True) -> str:
+    """
+    Format the query result as JSON string.
+    
+    Args:
+        result: Result dict from parse_and_retrieve_events
+        pretty: If True, format with indentation for readability
+    
+    Returns:
+        JSON string representation of the result
+    """
+    # Create a serializable version of the result
+    json_result = {
+        "query": result.get("_original", ""),
+        "normalized": result["normalized"],
+        "corrected": result["corrected"],
+        "category": result["category"],
+        "day": result["day"],
+        "entities": result["entities"],
+        "intent_tuple": {
+            "category": result["intent_tuple"][0],
+            "entities": list(result["intent_tuple"][1]),
+            "day": result["intent_tuple"][2]
+        },
+        "event_count": len(result["results"]),
+        "events": result["results"]
+    }
+    
+    if pretty:
+        return json.dumps(json_result, indent=2, ensure_ascii=False)
+    else:
+        return json.dumps(json_result, ensure_ascii=False)
+
+
 # ===================== Public API =====================
 
 __all__ = [
@@ -623,3 +657,4 @@ __all__ = [
     "DAY_VARIANTS",
     "STOPWORDS",
 ]
+
